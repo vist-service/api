@@ -29,7 +29,7 @@ router.get('/login', ctx => {
 })
 
 // retrieve github token
-router.get('/login/callback', async function (ctx) {
+router.get('/login/callback', async ctx => {
   const code = ctx.query.code
   try {
     const token = await pify(github.auth).login(code)
