@@ -8,13 +8,18 @@ import pify from 'pify'
 import {isDev} from './utils'
 import config from './config'
 
+const app = new Koa()
+
+// use koa to serve static files in dev mode
+if (isDev) {
+  app.use(convert(logger()))
+}
+
 // build github client
 const client = github.client({
   id: config.github.id,
   secret: config.github.secret
 })
-
-const app = new Koa()
 
 const router = new Router()
 
@@ -33,21 +38,22 @@ router.get('/login/callback', async ctx => {
   const code = ctx.query.code
   try {
     const token = await pify(github.auth).login(code)
-    ctx.redirect(`/login/success?token=${token}`)
+    if (isDev) {
+      ctx.redirect(`http://localhost:3888/login/success?token=${token}`)
+    } else {
+      ctx.redirect(`http://vist.egoistian.com/login/success?token=${token}`)
+    }
   } catch (e) {
     ctx.body = e.message
   }
 })
 
-if (isDev) {
-  app.use(convert(logger()))
-}
+router.get('*', async ctx => {
+  ctx.body = 'vist api v1'
+})
+
 app.use(router.routes())
 app.use(body())
-
-app.use(async ctx => {
-  ctx.body = 'hello'
-})
 
 app.listen(config.port, () => {
   console.log(`Listening at http://localhost:${config.port}`)
