@@ -5,10 +5,10 @@ WORKDIR /usr/src/app
 
 ADD package.json /usr/src/app/
 RUN npm install
+COPY . /usr/src/app
+
 RUN npm install rolling -g
 RUN npm run build
-
-COPY . /usr/src/app
 
 EXPOSE 3789
 
