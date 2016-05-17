@@ -4,7 +4,7 @@ Vue + Gist
 
 ## API
 
-Domain name: `not sure`
+Domain name: `vist-api.egoistian.com`
 
 ### Login with GitHub
 
