@@ -10,7 +10,7 @@ Domain name: `not sure`
 
 GET `/login`
 
-If success, it will be redirected to `client/login/success?code=access_token`
+If success, it will be redirected to `vist.egoistian.com/login/success?code=access_token`
 
 Otherwise, an error message will output in the webpage.
 
