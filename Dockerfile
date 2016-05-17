@@ -6,4 +6,6 @@ RUN npm install rolling -g
 RUN npm run build:server
 ADD . .
 
+EXPOSE 3789
+
 CMD ["node", "server.js"]

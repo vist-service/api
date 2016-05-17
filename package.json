@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo lol",
-    "start:dev": "NODE_PORT=3789 NODE_ENV=development node server.js",
+    "start:dev": "NODE_ENV=development node server.js",
     "dev:server": "nodemon -x \"npm run build:server && npm run start:dev\" server.js --watch server/ --watch vbuild-assets.json",
     "build:server": "rolling server/index.js -o server.js"
   },

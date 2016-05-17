@@ -7,7 +7,7 @@ function prefix(str) {
 }
 
 export default {
-  port: process.env.NODE_PORT || 3000,
+  port: 3789,
   github: {
     id: process.env[prefix('GITHUB_ID')],
     secret: process.env[prefix('GITHUB_SECRET')]
