@@ -39,9 +39,9 @@ router.get('/login/callback', async ctx => {
   try {
     const token = await pify(github.auth).login(code)
     if (isDev) {
-      ctx.redirect(`http://localhost:3888/login/success?token=${token}`)
+      ctx.redirect(`http://localhost:3888/login/success?accessToken=${token}`)
     } else {
-      ctx.redirect(`http://vist.egoistian.com/login/success?token=${token}`)
+      ctx.redirect(`http://vist.egoistian.com/login/success?accessToken=${token}`)
     }
   } catch (e) {
     ctx.body = e.message

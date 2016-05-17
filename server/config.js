@@ -1,5 +1,9 @@
 import {isDev} from './utils'
 
+if (isDev) {
+  require('dotenv').config()
+}
+
 function prefix(str) {
   return isDev
     ? `DEV_${str}`
