@@ -1,7 +1,4 @@
-import dotenv from 'dotenv'
 import {isDev} from './utils'
-
-dotenv.config()
 
 function prefix(str) {
   return isDev
