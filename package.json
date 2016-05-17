@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo lol",
     "start:dev": "NODE_ENV=development node server.js",
-    "dev:server": "nodemon -x \"npm run build:server && npm run start:dev\" server.js --watch server/ --watch vbuild-assets.json",
-    "build:server": "rolling server/index.js -o server.js"
+    "dev": "nodemon -x \"npm run build:server && npm run start:dev\" server.js --watch server/ --watch vbuild-assets.json",
+    "build": "rolling server/index.js -o server.js"
   },
   "repository": {
     "type": "git",
