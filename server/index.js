@@ -41,7 +41,7 @@ router.get('/login/callback', async ctx => {
     if (isDev) {
       ctx.redirect(`http://localhost:3888/#!/login/success/${token}`)
     } else {
-      ctx.redirect(`http://vist.egoistian.com/#!/login/success/${token}`)
+      ctx.redirect(`http://vist.surge.sh/#!/login/success/${token}`)
     }
   } catch (e) {
     ctx.body = e.message
